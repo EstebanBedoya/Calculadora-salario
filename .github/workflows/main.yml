@@ -31,7 +31,7 @@ jobs:
         run: npm build
       # Share artifact inside workflow
       - name: conpartiendo artefactos en el workflow
-        uses: actions/upload-artifact@v1
+        uses: actions/upload-artifact@v2
         with:
           name: react-github-actions-build
           path: build
