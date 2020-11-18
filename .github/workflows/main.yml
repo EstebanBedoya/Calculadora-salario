@@ -45,5 +45,6 @@ jobs:
           heroku_api_key: ${{secrets.HEROKU_API_KEY}}
           heroku_app_name: salarios-app #Must be unique in Heroku
           heroku_email: estebegi@gmail.com
+          branch: master
 
       
