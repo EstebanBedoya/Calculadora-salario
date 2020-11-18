@@ -93,7 +93,7 @@ function App() {
         <Grid container item justify='center' alignItems='center'>
           <Grid item>
             <TextField
-              label="valor por Hora"
+              label="Horas trabajadas"
               type="number"
               variant="filled"
               value={horas}

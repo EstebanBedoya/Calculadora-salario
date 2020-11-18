@@ -27,15 +27,25 @@ jobs:
         run: npm test
         env:
           CI: true
-  deploy: 
+  release:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-      - uses: akhileshns/heroku-deploy@v3.6.8 # This is the action
-        with:
-          heroku_api_key: ${{secrets.HEROKU_API_KEY}}
-          heroku_app_name: salarios-app #Must be unique in Heroku
-          heroku_email: estebegi@gmail.com
+    - uses: actions/checkout@master
+    - name: login
+      uses: actions/heroku@master
+      env:
+        HEROKU_API_KEY: ${{ secrets.HEROKU_API_KEY }}
+      with:
+        args: container:login
+    - name: set remote
+      uses: actions/heroku@master
+      env:
+        HEROKU_API_KEY: ${{ secrets.HEROKU_API_KEY }}
+      with:
+        args: git:remote -a salarios-app
+    - name: push
+      run: git push https://heroku:${{ secrets.HEROKU_API_KEY }}@git.heroku.com/salarios-app.git master
+
 
 
       
