@@ -1,4 +1,4 @@
-name: DeployCI
+name: MasterDeployCI
 on:
   push:
     branches:
@@ -8,7 +8,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        node-version: [12.8]
+        node-version: [12.18]
     steps:
     - uses: actions/checkout@v1
     - name: Use Node.js ${{ matrix.node-version }}
@@ -18,11 +18,6 @@ jobs:
     - name: Install Packages
       run: npm install
     - name: Deploy to GH Pages
-      run: npm run deploy
+      run: npm build
     - name: Updating Domain
       run: echo "Update domain"
-
-
-
-      
-# node-version: 12.8
