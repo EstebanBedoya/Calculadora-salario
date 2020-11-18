@@ -46,7 +46,13 @@ jobs:
       - name: configurndo credenciales de heroku
         uses: akhileshns/heroku-deploy@v3.6.8
         with:
+<<<<<<< HEAD
             heroku_api_key: ${{secrets.HEROKU_API_KEY}}
             heroku_app_name: salarios-heroku_app_name
             heroku_email: estebegi@gmail.com
       
+=======
+          heroku_api_key: ${{secrets.HEROKU_API_KEY}}
+          heroku_app_name: Calculadora-salario
+          heroku_email: estebegi@gmail.com
+>>>>>>> f32610c36a835948eac28c63548c7858129b5034
