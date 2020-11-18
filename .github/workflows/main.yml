@@ -22,4 +22,4 @@ jobs:
         git config --global user.email estebegi@gmail.com
         git config --global user.name EstebanBedoya1
         git remote set-url origin https://${{ secrets.PERSONAL_TOKEN }}@github.com/EstebanBedoya/Calculadora-salario.git
-        npm build
+        npm run deploy

@@ -8,7 +8,7 @@ import {
   TableBody,
   Paper
 } from '@material-ui/core'
-import Alert from '@material-ui/lab/Alert'
+// import {Alert} from '@material-ui/lab'
 import { withStyles } from '@material-ui/core/styles';
 
 const StyledTableCell = withStyles((theme) => ({
@@ -43,9 +43,7 @@ export const salario = (horas, valorHora) => {
 
 const renderTable = (informe) => {
   if (informe === 'valores invalidos') {
-    return <Alert variant="filled" severity="error">
-      valores invalidos
-  </Alert>
+    return <h5>valores invalidos</h5>
   } else if (informe != null) {
     return <TableContainer component={Paper}>
       <Table aria-label="simple table">
