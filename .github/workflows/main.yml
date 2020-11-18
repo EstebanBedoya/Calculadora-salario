@@ -44,7 +44,7 @@ jobs:
       with:
         args: git:remote -a salarios-app
     - name: push
-      run: git push https://heroku:${{ secrets.HEROKU_API_KEY }}@git.heroku.com/salarios-app.git master
+      run: git push heroku master
 
 
 
