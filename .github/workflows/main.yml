@@ -12,7 +12,7 @@ on:
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
-  build:
+  test:
     runs-on: ubuntu-latest
     steps:
       - name: Clonando repositorio
@@ -27,24 +27,25 @@ jobs:
         run: npm test
         env:
           CI: true
-      - name: Generando build
-        run: npm build
-      # Share artifact inside workflow
-      - name: conpartiendo artefactos en el workflow
-        uses: actions/upload-artifact@v2
-        with:
-          name: salarios-build
-          path: build
   deploy: 
     runs-on: ubuntu-latest
-    needs: build
     steps:
-      - uses: actions/checkout@v2
-      - uses: akhileshns/heroku-deploy@v3.6.8 # This is the action
-        with:
-          heroku_api_key: ${{secrets.HEROKU_API_KEY}}
-          heroku_app_name: salarios-app #Must be unique in Heroku
-          heroku_email: estebegi@gmail.com
-          branch: master
+      - name: install heroku cli
+        run: sudo snap install --classic heroku 
+      - name: ingresar credenciales
+        run: heroku login
+      - name: correo
+        run: estebegi@gmail.com
+      - name: contraseña
+        run: Estebanbedoya1
+      - name: agregar repositorio
+        run: heroku git:remote -a salarios-app
+      - name: añadiendo archivos
+        run: git add .
+      - name: commit
+        run: git commit -am "pofavo funciona"
+      - name: push
+        run: git push heroku master
+
 
       
