@@ -30,22 +30,12 @@ jobs:
   deploy: 
     runs-on: ubuntu-latest
     steps:
-      - name: install heroku cli
-        run: sudo snap install --classic heroku 
-      - name: ingresar credenciales
-        run: heroku login
-      - name: correo
-        run: estebegi@gmail.com
-      - name: contraseña
-        run: Estebanbedoya1
-      - name: agregar repositorio
-        run: heroku git:remote -a salarios-app
-      - name: añadiendo archivos
-        run: git add .
-      - name: commit
-        run: git commit -am "pofavo funciona"
-      - name: push
-        run: git push heroku master
+      - uses: actions/checkout@v2
+      - uses: akhileshns/heroku-deploy@v3.6.8 # This is the action
+        with:
+          heroku_api_key: ${{secrets.HEROKU_API_KEY}}
+          heroku_app_name: salarios-app #Must be unique in Heroku
+          heroku_email: estebegi@gmail.com
 
 
       
