@@ -39,6 +39,5 @@ jobs:
         uses: akhileshns/heroku-deploy@v3.6.8
         with:
           heroku_api_key: ${{secrets.HEROKU_API_KEY}}
-          heroku_app_name: "Calculadora salario"
-          dir: build # The folder the action should deploy.
+          heroku_app_name: "Calculadora-salario"
           heroku_email: "estebegi@gmail.com"
