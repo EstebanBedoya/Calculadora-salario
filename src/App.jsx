@@ -43,7 +43,7 @@ export const salario = (horas, valorHora) => {
 
 const renderTable = (informe) => {
   if (informe === 'valores invalidos') {
-    return <h5>valores invalidos</h5>
+    return <h5>valores invalidos :'c</h5>
   } else if (informe != null) {
     return <TableContainer component={Paper}>
       <Table aria-label="simple table">
