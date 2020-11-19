@@ -1,7 +1,7 @@
 import { salario } from './App'
 
 test('No se permiten valores flotantes en las horas', () =>{
-    expect(salario(5,30000)).toMatch('valores invalidos')
+    expect(salario(5.5,30000)).toMatch('valores invalidos')
 })
 
 test('Si son 48 horas o menos de trabajo, no se pagan horas extras', () =>{
